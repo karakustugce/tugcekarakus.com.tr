@@ -142,6 +142,8 @@ main,footer,.top{position:relative;z-index:2}
 .row:hover .ar,.row:focus-visible .ar{background:var(--gold);border-color:var(--gold);color:#04060B;transform:rotate(-45deg)}
 .tag{display:inline-block;margin-left:.7rem;font-family:var(--f-mono);font-size:.55rem;letter-spacing:.1em;text-transform:uppercase;border:1px solid var(--ink-3);color:var(--ink-2);border-radius:99px;padding:.12rem .5rem;vertical-align:.55em}
 .empty{padding:2rem 0;color:var(--ink-2)}
+.tag-tcm{border-color:var(--gold);color:var(--gold)}
+.rd-meta dd a{color:var(--gold);text-decoration:none;border-bottom:1px solid currentColor}
 
 .now{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;margin-top:clamp(40px,6vw,80px);border-top:1px solid var(--rule)}
 .now div{padding:1.1rem 1.2rem 0 0;min-width:0}
@@ -319,6 +321,7 @@ footer{display:flex;flex-wrap:wrap;justify-content:space-between;gap:1rem;color:
     <div class="links mono">
       <a href="https://www.linkedin.com/" target="_blank" rel="noopener">LinkedIn ↗</a>
       <a href="https://github.com/" target="_blank" rel="noopener">GitHub ↗</a>
+      <a href="https://tcmglobal.co" target="_blank" rel="noopener">TCM Global ↗</a>
       <a href="#top" data-i18n="toTop">Başa dön ↑</a>
     </div>
   </section>
@@ -350,15 +353,164 @@ footer{display:flex;flex-wrap:wrap;justify-content:space-between;gap:1rem;color:
 /* =====================================================================
    İÇERİK — yeni yazı / makale / proje eklemek için ENTRIES'e kayıt ekle.
    type: "yazi" | "makale" | "proje" | "arastirma"   ·   metinler { tr, en }
+   org: "tcm" → TCM Global kaydı (dizinde en üstte), order: 1,2,3… → TCM içindeki sıra.
+   archive: true → listenin en sonuna düşer.   url → okuyucuda "Siteyi aç" bağlantısı.
    draft: true → "Taslak / Draft" etiketi.   featured: true → 02. bölümdeki buton bunu açar.
    ===================================================================== */
 const ENTRIES = [
+  /* ============================ TCM GLOBAL ============================ */
+  { id:"tk-040", type:"proje", org:"tcm", order:1, date:"2026-08", url:"https://tcmglobal.co",
+    status:{tr:"Yayında",en:"Live"},
+    title:{tr:"TCM Global",en:"TCM Global"},
+    dek:{tr:"Kurucu ortağı ve CTO’su olduğum stüdyo: markaları, üreticileri, teknolojiyi ve global ticari fırsatları bir araya getiren bir iş geliştirme platformu.",
+         en:"The studio I co-founded and serve as CTO: a business development platform connecting brands, manufacturers, technology and global trade opportunities."},
+    meta:{tr:{"Rol":"Kurucu ortak, CTO","Merkez":"Denizli"},en:{"Role":"Co-founder, CTO","Base":"Denizli, Türkiye"}},
+    stack:["Strateji","Marka","Web","AI","n8n"],
+    body:{
+tr:`<p>TCM Global (Think Creative Minds), Denizli merkezli bir marka stratejisi, dijital dönüşüm ve yaratıcı stüdyo olarak başladı. Bugün kendini bir <strong>iş geliştirme platformu</strong> olarak konumluyor: fırsatı bulmak, stratejiyi kurmak, ürünü ve markayı geliştirmek, partnerleri birleştirmek ve global pazara çıkmak.</p>
+<h2>Dört motor</h2>
+<ul><li>Strategy &amp; Transformation</li><li>Brand &amp; Product Development</li><li>Global Business Development &amp; Trade</li><li>Partnership &amp; Ownership</li></ul>
+<h2>Benim rolüm</h2>
+<p>CTO olarak teknik tarafı kendim kuruyorum: müşteri web siteleri, stüdyonun kendi sitesi, n8n otomasyonları ve TCM bünyesinde geliştirdiğimiz ürünler. Stüdyonun sitesini (tcmglobal.co) saf HTML, CSS ve JavaScript ile, TR ve EN ayrı sayfalar olacak şekilde sıfırdan yeniden yazdım.</p>
+<blockquote>Local Capability × Strategy × AI × Global Opportunity = Scalable Business</blockquote>`,
+en:`<p>TCM Global (Think Creative Minds) started as a brand strategy, digital transformation and creative studio based in Denizli. Today it positions itself as a <strong>business development platform</strong>: find the opportunity, build the strategy, develop the product and brand, bring partners together and take it to the global market.</p>
+<h2>Four engines</h2>
+<ul><li>Strategy &amp; Transformation</li><li>Brand &amp; Product Development</li><li>Global Business Development &amp; Trade</li><li>Partnership &amp; Ownership</li></ul>
+<h2>My role</h2>
+<p>As CTO I build the technical side myself: client websites, the studio’s own site, n8n automations and the products we develop inside TCM. I rewrote the studio site (tcmglobal.co) from scratch in plain HTML, CSS and JavaScript, with separate TR and EN pages.</p>
+<blockquote>Local Capability × Strategy × AI × Global Opportunity = Scalable Business</blockquote>`}
+  },
+  { id:"tk-041", type:"proje", org:"tcm", order:2, date:"2026-09", url:"https://drcerci.com.tr",
+    status:{tr:"Yayında",en:"Live"},
+    title:{tr:"DR. CERCI",en:"DR. CERCI"},
+    dek:{tr:"Manisa’dan soğuk sıkım premium zeytinyağı markası için web sitesi ve marka yönetimi, ticarileşme ve pazara açılım süreci.",
+         en:"Website, brand management and go-to-market for a premium cold-pressed olive oil brand from Manisa."},
+    meta:{tr:{"Rol":"TCM Global · web ve süreç yönetimi","Alan":"Gıda, premium"},en:{"Role":"TCM Global · web and project lead","Field":"Food, premium"}},
+    stack:["React","Supabase","Vercel","SEO"],
+    body:{
+tr:`<p>DR. CERCI, Manisa’da üretilen soğuk sıkım zeytinyağını premium bir markaya dönüştürme projesi. TCM Global olarak markanın yönetimini, ticarileşmesini ve pazara açılımını yürütüyoruz.</p>
+<p>Sitenin teknik tarafı bende: SEO, yönetim paneli ve tasarım üzerinde uzun bir iterasyon süreci. Site, Ekim 2026 hasadı için bir bekleme listesiyle açıldı.</p>`,
+en:`<p>DR. CERCI turns cold-pressed olive oil produced in Manisa into a premium brand. At TCM Global we run the brand’s management, commercialisation and market entry.</p>
+<p>I own the technical side of the site: a long iteration on SEO, the admin panel and the design. It launched with a waiting list for the October 2026 harvest.</p>`}
+  },
+  { id:"tk-042", type:"proje", org:"tcm", order:3, date:"2026-08",
+    status:{tr:"Geliştiriliyor",en:"In development"},
+    title:{tr:"Golden Apple",en:"Golden Apple"},
+    dek:{tr:"Honaz’ın cennet hurmasını katma değerli ürünlere dönüştüren bir food & wellness markası: konumlandırma, ürün mimarisi ve sinematik web sitesi.",
+         en:"A food & wellness brand turning Honaz persimmons into value-added products: positioning, product architecture and a cinematic website."},
+    meta:{tr:{"Rol":"TCM Global · marka ve web","Alan":"Gıda, ihracat"},en:{"Role":"TCM Global · brand and web","Field":"Food, export"}},
+    stack:["Marka stratejisi","GSAP","Lenis","HTML/CSS/JS"],
+    body:{
+tr:`<p>Golden Apple’ı bir tarım ihracatçısı olarak değil, cennet hurmasını modern yaşam için gıdaya dönüştüren bir marka olarak kurguluyoruz.</p>
+<blockquote>Nature. Reinvented. From fruit to function.</blockquote>
+<h2>Ürün mimarisi</h2>
+<ul><li>Fresh, Dried ve Select: taze, kurutulmuş ve premium seçki</li><li>Protein ve Snacks: markayı üreticilikten katma değerli gıdaya taşıyan seriler</li></ul>
+<h2>Web sitesi</h2>
+<p>B2B ihracat alıcıları, HORECA ve havayolu tedarikçileri için sinematik, kaydırmayla ilerleyen bir site. Hiç no-code araç kullanmadan, HTML/CSS/JS, GSAP ve Lenis ile yazılıyor. Görseller tarladan gerçek çekimler olacak.</p>`,
+en:`<p>We are building Golden Apple not as an agricultural exporter but as a brand that turns persimmons into food for modern life.</p>
+<blockquote>Nature. Reinvented. From fruit to function.</blockquote>
+<h2>Product architecture</h2>
+<ul><li>Fresh, Dried and Select: fresh, dried and a premium selection</li><li>Protein and Snacks: the lines that move the brand from grower to value-added food</li></ul>
+<h2>Website</h2>
+<p>A cinematic scroll-driven site for B2B export buyers, HORECA and airline suppliers, written in plain HTML/CSS/JS with GSAP and Lenis, no no-code tools. The imagery will be real shots from the orchards.</p>`}
+  },
+  { id:"tk-043", type:"proje", org:"tcm", order:4, date:"2026-09",
+    status:{tr:"Pilot",en:"Pilot"},
+    title:{tr:"Franchise OS",en:"Franchise OS"},
+    dek:{tr:"TCM’in ilk ürünü: markaları franchise’a hazırlayan bir program ve şube yönetimi aboneliği.",
+         en:"TCM’s first product: a franchise-readiness programme and a branch management subscription."},
+    meta:{tr:{"Rol":"CTO · ürün ve yazılım","Model":"Program + abonelik"},en:{"Role":"CTO · product and engineering","Model":"Programme + subscription"}},
+    stack:["Ürün","Dashboard","KPI"],
+    body:{
+tr:`<p>Franchise OS’in ilk sürümü, bir gastronomi markasının 90 günlük franchise pilotu için kurduğumuz KPI takip paneli: haftalık veri girişi, aylık kalite denetimi ve sonunda net bir GO / PAUSE / STOP kararı.</p>
+<h2>Yaklaşım</h2>
+<p>Önce kendi pilotumuzda kullanıp üç markaya ön satış yapmak, kodu ancak ondan sonra büyütmek. Hedef, eğitimle müşteri kazanıp uygulamayla aylık gelir kurmak.</p>`,
+en:`<p>The first version of Franchise OS is the KPI panel we built for a food brand’s 90-day franchise pilot: weekly data entry, a monthly quality audit and, at the end, a clear GO / PAUSE / STOP decision.</p>
+<h2>Approach</h2>
+<p>Use it in our own pilot and pre-sell it to three brands first; only then grow the code. The goal is to win clients through training and build recurring revenue through the product.</p>`}
+  },
+  { id:"tk-044", type:"proje", org:"tcm", order:5, date:"2026-09",
+    status:{tr:"Geliştiriliyor",en:"In development"},
+    title:{tr:"GEO: yapay zekâ aramasında görünürlük",en:"GEO: visibility in AI search"},
+    dek:{tr:"Markaların ChatGPT ve Perplexity gibi yapay zekâ arama motorlarında bulunmasını sağlayan bir TCM ürünü (Generative Engine Optimization).",
+         en:"A TCM product that helps brands get found in AI search engines such as ChatGPT and Perplexity (Generative Engine Optimization)."},
+    meta:{tr:{"Rol":"CTO · ürün ve otomasyon"},en:{"Role":"CTO · product and automation"}},
+    stack:["GEO","n8n","AI"],
+    body:{
+tr:`<p>Çıkış noktası, bir müşterimiz için Perplexity üzerinden arama yaparak yapay zekâ cevaplarında görünürlüğü ve satışı test etmekti. İnsanlar artık ürün aramaya bir arama motoruyla değil, bir yapay zekâ asistanıyla başlıyor.</p>
+<p>Ürünü önce TCM’in kendisinde uyguluyoruz: sosyal medyadan ve web sitesinden gelen talepleri n8n ile kurulan bir sistemde topluyoruz. Hızlı bir ilk sürüm çıkarıp sonra geliştirmeye devam etmek istiyoruz.</p>`,
+en:`<p>It started with a test for a client: searching through Perplexity to see whether visibility in AI answers could drive sales. People now begin product searches with an AI assistant rather than a search engine.</p>
+<p>We are applying it to TCM itself first, collecting enquiries from social media and the website in a system built with n8n. The plan is to ship a fast first version and keep improving it.</p>`}
+  },
+  { id:"tk-045", type:"proje", org:"tcm", order:7, date:"2026-07",
+    status:{tr:"Tamamlandı",en:"Delivered"},
+    title:{tr:"Yapay zekâ ile operasyonel verimlilik",en:"Operational efficiency with AI"},
+    dek:{tr:"Bir beyaz eşya markasının saha satış ekibine verdiğimiz yarım günlük, uygulamalı yapay zekâ atölyesi.",
+         en:"A half-day, hands-on AI workshop for a home-appliance brand’s field sales team."},
+    meta:{tr:{"Rol":"TCM Global · eğitim ve içerik","Format":"Yüz yüze atölye"},en:{"Role":"TCM Global · training and content","Format":"In-person workshop"}},
+    stack:["Eğitim","AI","Satış"],
+    body:{
+tr:`<p>Atölyenin sunumunu, canlı demo uygulamasının brief’ini, konuşma metnini ve satış stratejisini hazırladık. Eğitimi tek seferlik bir ders olarak değil, daha büyük bir yapısal dönüşüm projesinin ilk adımı olarak kurguladık.</p>
+<p>Sonrasında yapılan değerlendirme anketinin ardından marka eğitimlere devam etmek istedi.</p>`,
+en:`<p>We produced the deck, the brief for a live demo app, the speaker script and the sales strategy. The training was designed as the first step of a larger structural transformation project rather than a one-off session.</p>
+<p>After the follow-up survey, the brand asked to continue the training.</p>`}
+  },
+  { id:"tk-046", type:"proje", org:"tcm", order:8, date:"2026-08", url:"https://kashmircollection.com.tr",
+    status:{tr:"Yayında",en:"Live"},
+    title:{tr:"Kashmir Collection",en:"Kashmir Collection"},
+    dek:{tr:"Bir kadın giyim markası için iyzico ödeme altyapısıyla çalışan e-ticaret sitesi.",
+         en:"An e-commerce site with iyzico payments for a women’s fashion brand."},
+    meta:{tr:{"Rol":"TCM Global · web","Alan":"Moda, e-ticaret"},en:{"Role":"TCM Global · web","Field":"Fashion, e-commerce"}},
+    stack:["E-ticaret","iyzico","GitHub"],
+    body:{
+tr:`<p>Ürün kataloğu, sepet ve iyzico ile ödeme akışı olan bir e-ticaret sitesi. Proje bana web işlerinde kapsamın ve revizyon turlarının baştan net yazılması gerektiğini öğretti. Artık her web projesine bir görüşme protokolü ve çalışma maddeleriyle başlıyoruz.</p>`,
+en:`<p>An e-commerce site with a product catalogue, cart and an iyzico checkout. It taught me to fix scope and revision rounds in writing from the start; every web project now begins with a briefing protocol and working terms.</p>`}
+  },
+  { id:"tk-047", type:"proje", org:"tcm", order:6, date:"2026-10",
+    status:{tr:"Kuruluyor",en:"In setup"},
+    title:{tr:"TCM Akademi",en:"TCM Academy"},
+    dek:{tr:"TCM’in eğitim kolu: girişimciler ve öğrenciler için Zoom üzerinden canlı paneller ve dersler.",
+         en:"TCM’s education arm: live panels and classes on Zoom for founders and students."},
+    meta:{tr:{"Rol":"CTO · site ve altyapı","Format":"Canlı, çevrim içi"},en:{"Role":"CTO · site and platform","Format":"Live, online"}},
+    stack:["Web","iyzico","Zoom"],
+    body:{
+tr:`<p>Kayıtlı ders yok; her oturum canlı ve katılımcılar kaynaklara erişiyor. TCM’in Türkiye sitesini ana siteyle aynı yapıda, Akademi ve Saha (Field Notes) bölümleriyle kuruyorum. Ödemeler iyzico ile alınacak.</p>`,
+en:`<p>No recorded courses: every session is live, and participants get the resources. I’m building TCM’s Türkiye site on the same structure as the main site, with Academy and Field Notes sections. Payments will run through iyzico.</p>`}
+  },
+  { id:"tk-048", type:"proje", org:"tcm", order:10, date:"2026-09",
+    status:{tr:"Pilot sezon",en:"Pilot season"},
+    title:{tr:"Ağaç Sahiplenme",en:"Adopt a Tree"},
+    dek:{tr:"Aydın Kuyucak’taki bir portakal bahçesi için ağaç sahiplenme projesi; 2026 pilot sezonu.",
+         en:"A tree-adoption project for an orange grove in Kuyucak, Aydın; 2026 pilot season."},
+    meta:{tr:{"Rol":"TCM Global · proje geliştirme","Alan":"Tarım, doğrudan satış"},en:{"Role":"TCM Global · project development","Field":"Agriculture, direct-to-consumer"}},
+    stack:["Marka","Ürün"],
+    body:{
+tr:`<p>Bir portakal ağacını sahiplenen kişi, sezon boyunca kendi ağacının ürününü alıyor. Üretici için önceden satış ve sadık bir müşteri kitlesi, sahiplenen için de meyvenin nereden geldiğini bilmek anlamına geliyor. 2026, modelin test edildiği pilot sezon.</p>`,
+en:`<p>Someone who adopts an orange tree receives that tree’s harvest through the season. For the grower it means pre-sold produce and a loyal customer base; for the adopter it means knowing exactly where the fruit comes from. 2026 is the pilot season that tests the model.</p>`}
+  },
+  { id:"tk-049", type:"proje", org:"tcm", order:9, date:"2026-08",
+    status:{tr:"Portfolyo",en:"Portfolio"},
+    title:{tr:"Yapay zekâ ile görsel üretim",en:"AI visual production"},
+    dek:{tr:"Kampanya, moda, ürün ve konsept görselleri için kurduğumuz beş aşamalı yapay zekâ üretim süreci.",
+         en:"The five-stage AI production pipeline we built for campaign, fashion, product and concept imagery."},
+    meta:{tr:{"Rol":"TCM Global · sanat yönetimi ve üretim"},en:{"Role":"TCM Global · art direction and production"}},
+    stack:["Midjourney","Higgsfield","Photoshop"],
+    body:{
+tr:`<p>TCM’in “AI Creative Studio” konumlanmasının merkezinde bu süreç var. Marka kampanyası, moda ve editoryal, ürün görselleştirme ile konsept ve lifestyle kategorilerinde yaklaşık 40 fotogerçekçi görsellik bir portfolyo ürettik.</p>
+<h2>Süreç</h2>
+<ul><li>Brief ve sanat yönetimi</li><li>Prompt mühendisliği</li><li>Üretim ve seçki</li><li>Retüş ve post-prodüksiyon</li><li>Teslim ve adaptasyon</li></ul>`,
+en:`<p>This pipeline sits at the centre of TCM’s “AI Creative Studio” positioning. We produced a portfolio of around 40 photorealistic images across brand campaigns, fashion and editorial, product visualisation, and concept and lifestyle.</p>
+<h2>Process</h2>
+<ul><li>Brief and art direction</li><li>Prompt engineering</li><li>Generation and selection</li><li>Retouching and post-production</li><li>Delivery and adaptation</li></ul>`}
+  },
+
+  /* ============================ ARAŞTIRMA ============================ */
   { id:"tk-031", type:"arastirma", date:"2026-09", featured:true,
     status:{tr:"Devam ediyor",en:"In progress"},
     title:{tr:"Ekonomik karar verici olarak yapay zekâ ajanları",en:"AI agents as economic decision-makers"},
     dek:{tr:"Dil modeli tabanlı ajanlar fiyat, risk ve kıtlık karşısında nasıl seçim yapıyor? Klasik rasyonellik varsayımlarıyla karşılaştırmalı bir çalışma.",
          en:"How do language-model agents choose when facing prices, risk and scarcity? A study that tests them against the classic rationality benchmarks."},
-    meta:{tr:{"Bağlam":"PAÜ İktisat · sunum","Yöntem":"Deney tasarımı, ajan simülasyonu"},en:{"Context":"Pamukkale Univ. Economics · talk","Method":"Experimental design, agent simulation"}},
+    meta:{tr:{"Bağlam":"PAÜ İktisat · sunum","Yöntem":"Ajan simülasyonu, Python"},en:{"Context":"Pamukkale Univ. Economics · talk","Method":"Agent simulation, Python"}},
     body:{
 tr:`<p>Yapay zekâ ajanları artık yalnızca metin üretmiyor; satın alıyor, teklif veriyor, bütçe dağıtıyor. Bu çalışma, bu ajanları birer ekonomik aktör olarak ele alıyor ve davranışlarını iktisat teorisinin standart ölçütleriyle sınıyor.</p>
 <h2>Araştırma soruları</h2>
@@ -373,92 +525,27 @@ en:`<p>AI agents no longer just produce text. They buy, bid and allocate budgets
 <p>If a growing share of decisions is made by software, the “representative agent” behind our market models is changing too. This study is a first step toward measuring how that new agent behaves.</p>
 <blockquote>The particles at the top of this site are a toy version of the question: agents that know only their own price settle on an equilibrium nobody announced.</blockquote>`}
   },
-  { id:"tk-028", type:"proje", date:"2026-08",
-    status:{tr:"Geliştiriliyor",en:"In development"},
+  { id:"tk-032", type:"arastirma", date:"2026-10",
+    status:{tr:"Devam ediyor",en:"In progress"},
+    title:{tr:"FEUS: Fon Erken Uyarı Skoru",en:"FEUS: a fund early-warning score"},
+    dek:{tr:"Türkiye’deki 2026 fon krizinden yola çıkan, kaynaklara dayalı bir erken uyarı endeksi.",
+         en:"An evidence-based early-warning index, built in response to Türkiye’s 2026 fund crisis."},
+    meta:{tr:{"Yöntem":"Endeks tasarımı, veri hattı"},en:{"Method":"Index design, data pipeline"}},
+    body:{
+tr:`<p>FEUS, fonlardaki sıkıntıyı kriz patlamadan önce görünür kılmayı amaçlayan bir skor. Veri hattını kendim kurdum ve endeksi bilimsel kaynaklara dayanan bir metodolojiye dönüştürmek için çalışıyorum.</p>`,
+en:`<p>FEUS is a score that aims to make stress in funds visible before a crisis breaks. I built the data pipeline myself and am working to turn the index into a methodology grounded in the academic literature.</p>`}
+  },
+
+  /* ============================ DİĞER ============================ */
+  { id:"tk-028", type:"proje", date:"2026-07", archive:true,
+    status:{tr:"Beklemede",en:"On hold"},
     title:{tr:"Partable",en:"Partable"},
-    dek:{tr:"Sanayi KOBİ’leri için yapay zekâ destekli finansal zekâ platformu: işletmenin yanında çalışan bir CFO.",en:"An AI financial-intelligence platform for industrial SMEs: a CFO that works alongside the business."},
-    meta:{tr:{"Rol":"Kurucu, ürün ve yazılım","Alan":"Finans, sanayi"},en:{"Role":"Founder, product and engineering","Field":"Finance, manufacturing"}},
-    stack:["AI","Financial modelling","n8n","Web"],
+    dek:{tr:"Sanayi KOBİ’leri için yapay zekâ destekli bir finansal zekâ platformu denemesi.",
+         en:"An exploration of an AI financial-intelligence platform for industrial SMEs."},
+    meta:{tr:{"Rol":"Kurucu","Alan":"Finans, sanayi"},en:{"Role":"Founder","Field":"Finance, manufacturing"}},
     body:{
-tr:`<p>Türkiye’deki sanayi KOBİ’lerinin çoğu nakit akışını, maliyetini ve marjını ay sonunda muhasebeciden öğreniyor. Partable bu bilgiyi her gün, karar anında önüne getirmeyi hedefliyor.</p>
-<h2>Ne yapıyor</h2>
-<ul><li>Muhasebe ve banka verisini tek bir finansal tabloya dönüştürüyor.</li><li>Nakit açığını haftalar öncesinden işaret ediyor.</li><li>Sipariş ve fiyat kararlarının marja etkisini sade bir dille anlatıyor.</li></ul>`,
-en:`<p>Most industrial SMEs in Turkey learn their cash flow, costs and margins from the accountant at month end. Partable aims to put that information in front of them every day, at the moment of decision.</p>
-<h2>What it does</h2>
-<ul><li>Turns accounting and bank data into one financial picture.</li><li>Flags cash shortfalls weeks ahead.</li><li>Explains, in plain language, how order and pricing decisions affect margin.</li></ul>`}
-  },
-  { id:"tk-027", type:"yazi", date:"2026-09", draft:true,
-    title:{tr:"Pazar fiyatları neden enflasyon rakamından farklı hissettiriyor?",en:"Why market-stall prices feel different from the inflation figure"},
-    dek:{tr:"Resmî endeks ile semt pazarındaki tezgâh arasındaki mesafe üzerine kısa bir not.",en:"A short note on the gap between the official index and the stall at the neighbourhood market."},
-    body:{
-tr:`<p>Enflasyon rakamı açıklandığında pazarda kimse şaşırmaz, ama çoğu kişi rakamın kendisine inanmaz. Bunun bir nedeni ölçümün kendisi, diğer nedeni de hangi ürünlere ne sıklıkla baktığımız.</p>
-<p>Endeks yüzlerce kalemi harcama ağırlıklarıyla birleştirir. Biz ise her hafta aynı on beş ürünü alırız ve fiyat hafızamız en çok onlara göre şekillenir.</p>
-<blockquote>Algılanan enflasyon, en sık satın aldığımız şeylerin enflasyonudur.</blockquote>
-<p>PazarRadar’ı bu farkı görünür kılmak için başlattım: aynı tezgâhtaki aynı ürünün fiyatını hafta hafta kaydedip resmî veriyle yan yana koymak.</p>`,
-en:`<p>When the inflation figure comes out, nobody at the market is surprised, yet few people believe the number. Part of the reason is measurement; the rest is which goods we look at, and how often.</p>
-<p>The index blends hundreds of items by spending weight. We buy the same fifteen items every week, and our memory of prices is built mostly on them.</p>
-<blockquote>Perceived inflation is the inflation of the things we buy most often.</blockquote>
-<p>I started PazarRadar to make that gap visible: logging the same item at the same stall week after week and setting it next to the official data.</p>`}
-  },
-  { id:"tk-024", type:"proje", date:"2026-07",
-    status:{tr:"Prototip",en:"Prototype"},
-    title:{tr:"Hindsight",en:"Hindsight"},
-    dek:{tr:"Girişim sermayesi fonları için portföy zekâsı platformu.",en:"A portfolio-intelligence platform for venture capital funds."},
-    meta:{tr:{"Rol":"Kurucu, ürün","Alan":"Girişim sermayesi"},en:{"Role":"Founder, product","Field":"Venture capital"}},
-    stack:["AI","Data","Dashboard"],
-    body:{
-tr:`<p>Bir fonun portföy şirketleri hakkındaki bilgisi e-postalara, aylık raporlara ve toplantı notlarına dağılmış durumda. Hindsight bu dağınık bilgiyi şirket başına tek bir güncel tabloya topluyor.</p>
-<p>Fikir, yatırım tarafındaki due diligence deneyimimden çıktı: doğru soru çoğu zaman bellidir, zor olan cevabın hangi belgede olduğunu bulmaktır.</p>`,
-en:`<p>What a fund knows about its portfolio companies is scattered across emails, monthly reports and meeting notes. Hindsight gathers it into one current view per company.</p>
-<p>The idea came from my due diligence work on the investment side: the right question is usually clear; the hard part is finding which document holds the answer.</p>`}
-  },
-  { id:"tk-022", type:"makale", date:"2026-07", draft:true,
-    title:{tr:"Bir KOBİ’nin CFO’ya değil, CFO gibi düşünen bir sisteme ihtiyacı var",en:"An SME doesn’t need a CFO. It needs a system that thinks like one"},
-    dek:{tr:"Küçük sanayi işletmelerinde finansal kararın neden geç geldiğine ve bunun nasıl değişebileceğine dair.",en:"Why financial decisions arrive late in small manufacturers, and how that could change."},
-    body:{
-tr:`<p>Elli kişilik bir üretim işletmesi tam zamanlı bir finans direktörü çalıştıramaz. Ama her gün bir finans direktörünün vereceği türden kararlar verir: hangi siparişi kabul etmeli, hangi tedarikçiye vadeli ödemeli, ne zaman fiyat artırmalı.</p>
-<h2>Sorun bilgi değil, zamanlama</h2>
-<p>Verinin büyük kısmı zaten mevcut. Eksik olan, o verinin karar anında anlaşılır bir cümleye dönüşmesi. “Bu siparişi bu fiyattan alırsan marjın yüzde dörde düşüyor” cümlesi, yirmi sayfalık bir mizandan daha değerlidir.</p>
-<h2>Yapay zekânın rolü</h2>
-<p>Burada yapay zekâ muhasebecinin yerini almaz; muhasebecinin ay sonunda ürettiği bilgiyi her güne yayar. Partable’ı bu varsayım üzerine kuruyorum.</p>`,
-en:`<p>A fifty-person manufacturer can’t afford a full-time finance director. Yet every day it makes the decisions a finance director would make: which order to accept, which supplier to pay on terms, when to raise prices.</p>
-<h2>The problem is timing, not data</h2>
-<p>Most of the data already exists. What’s missing is turning it into a clear sentence at the moment of decision. “Take this order at this price and your margin drops to four percent” is worth more than a twenty-page trial balance.</p>
-<h2>Where AI fits</h2>
-<p>AI doesn’t replace the accountant here. It spreads what the accountant produces at month end across every day. Partable is built on that premise.</p>`}
-  },
-  { id:"tk-019", type:"proje", date:"2026-06",
-    status:{tr:"Yayında",en:"Live"},
-    title:{tr:"PazarRadar",en:"PazarRadar"},
-    dek:{tr:"Türkiye’deki semt pazarlarında fiyat takibi için mobil web uygulaması.",en:"A mobile web app for tracking prices at Turkish open-air markets."},
-    meta:{tr:{"Rol":"Tasarım ve yazılım","Alan":"Tüketici fiyatları"},en:{"Role":"Design and engineering","Field":"Consumer prices"}},
-    stack:["PWA","JavaScript","Data viz"],
-    body:{
-tr:`<p>Semt pazarı fiyatları resmî veride haftalık ayrıntıyla görünmez. PazarRadar, kullanıcıların tezgâh fiyatlarını birkaç dokunuşla kaydetmesini ve ürün bazında haftalık değişimi görmesini sağlıyor.</p>
-<p>Uygulama çevrimdışı çalışıyor, çünkü pazarın ortasında çekim her zaman iyi değil.</p>`,
-en:`<p>Open-air market prices don’t show up in official data at weekly detail. PazarRadar lets people log stall prices in a few taps and see week-by-week change per item.</p>
-<p>It works offline, because reception in the middle of a market is rarely good.</p>`}
-  },
-  { id:"tk-016", type:"proje", date:"2026-05",
-    status:{tr:"Geliştiriliyor",en:"In development"},
-    title:{tr:"ORVE",en:"ORVE"},
-    dek:{tr:"Sosyal medya ajansları için yapay zekâ destekli işletim sistemi; TCM Global içinde geliştiriliyor.",en:"An AI operating system for social media agencies, built inside TCM Global."},
-    meta:{tr:{"Rol":"CTO, mimari","Alan":"Ajans operasyonu"},en:{"Role":"CTO, architecture","Field":"Agency operations"}},
-    stack:["AI","n8n","Automation"],
-    body:{
-tr:`<p>Bir ajansın günü brief toplamak, içerik takvimi kurmak, onay beklemek ve rapor hazırlamakla geçer. ORVE bu döngünün tekrarlayan kısımlarını otomasyona bağlayıp ekibin zamanını yaratıcı işe bırakıyor.</p>`,
-en:`<p>An agency’s day goes to collecting briefs, building content calendars, waiting for approvals and preparing reports. ORVE automates the repetitive parts of that loop and gives the team’s time back to creative work.</p>`}
-  },
-  { id:"tk-012", type:"yazi", date:"2026-04", draft:true,
-    title:{tr:"Due diligence’ta ilk baktığım beş şey",en:"Five things I check first in due diligence"},
-    dek:{tr:"Bir girişim dosyasını açtığımda sırayla sorduğum sorular.",en:"The questions I ask, in order, when I open a startup’s file."},
-    body:{
-tr:`<p>Bir yatırım dosyasında ilk okumada her şeyi anlamaya çalışmak yerine birkaç soruya hızlı cevap arıyorum. Cevaplar netse derine iniyorum; net değilse asıl çalışma orada başlıyor.</p>
-<ul><li>Müşteri bu sorunu bugün nasıl çözüyor ve buna ne ödüyor?</li><li>Gelir tekrarlıyor mu, yoksa her ay yeniden mi kazanılıyor?</li><li>Ekip bu pazarı neden başkalarından iyi biliyor?</li><li>Rakamlar birbiriyle tutarlı mı?</li><li>Bu şirket başarılı olursa kim kaybeder?</li></ul>
-<p>Son soru çoğu zaman en çok şey anlatan soru oluyor.</p>`,
-en:`<p>On a first read of an investment file, I don’t try to understand everything. I look for quick answers to a few questions. If the answers are clear, I go deeper; if not, that’s where the real work starts.</p>
-<ul><li>How does the customer solve this problem today, and what do they pay for it?</li><li>Is revenue recurring, or won again every month?</li><li>Why does this team know the market better than others?</li><li>Do the numbers agree with each other?</li><li>If this company wins, who loses?</li></ul>
-<p>The last question usually tells me the most.</p>`}
+tr:`<p>Sanayi KOBİ’lerinin nakit akışını ve marjını ay sonunu beklemeden görebilmesi fikri üzerine kurduğum bir ürün denemesi. Şu an önceliğim TCM Global; proje beklemede.</p>`,
+en:`<p>A product exploration built on the idea that industrial SMEs should see their cash flow and margins without waiting for month end. My focus is now TCM Global, so the project is on hold.</p>`}
   }
 ];
 
@@ -473,10 +560,10 @@ const UI = {
   pstar:"Denge fiyatı",qstar:"Miktar",agentsL:"Ajan",readStudy:"Araştırmayı oku",
   hint:"İmleci yukarı aşağı oynat: talep kayar, denge yeniden kurulur.",hintTouch:"Talep kendi kendine dalgalanıyor; denge her an yeniden kuruluyor.",boot:"Ajanlar başlatılıyor",
   e3:"03 · Dünya",h3:"Türkiye’den <em>dünyaya.</em>",
-  p3:"Türkiye’de başlayan fikirleri dünya ölçeğinde ürünlere dönüştürmek için çalışıyorum. Pamukkale Üniversitesi’nde SUNY çift diploma programıyla <strong>ekonomi</strong> okuyorum. <strong>TCM Global</strong>’in ortağı ve CTO’suyum, <strong>APY Ventures</strong>’ta yatırım analizi yapıyorum ve kendi ürünlerimi kuruyorum.",
-  indexH:"Yazılar, <em>projeler,</em> araştırma.",
-  now:[["Şu an","Ortak ve CTO, TCM Global"],["Yatırım","Due diligence, APY Ventures"],["Okul","Ekonomi, SUNY çift diploma"],["Kuruyor","Partable, Hindsight, PazarRadar"]],
-  search:"Dizinde ara",empty:"Bu aramayla eşleşen kayıt yok. Süzgeci “Tümü”ne alıp tekrar dene.",all:"Tümü",
+  p3:"Türkiye’de başlayan fikirleri dünya ölçeğinde ürünlere dönüştürmek için çalışıyorum. Pamukkale Üniversitesi’nde SUNY çift diploma programıyla <strong>ekonomi</strong> okuyorum. <strong>TCM Global</strong>’in kurucu ortağı ve CTO’suyum: markalar, web ürünleri ve yapay zekâ sistemleri kuruyorum. Bir yandan da <strong>APY Ventures</strong>’ta yatırım analizi yapıyorum.",
+  indexH:"TCM Global, <em>projeler,</em> araştırma.",
+  now:[["Şu an","Kurucu ortak ve CTO, TCM Global"],["Yatırım","Due diligence, APY Ventures"],["Okul","Ekonomi, SUNY çift diploma"],["TCM ürünleri","Franchise OS, GEO, TCM Akademi"]],
+  search:"Dizinde ara",empty:"Bu aramayla eşleşen kayıt yok. Süzgeci “Tümü”ne alıp tekrar dene.",all:"Tümü",tcm:"TCM Global",visit:"Siteyi aç ↗",link:"Bağlantı",
   types:{yazi:"Yazı",makale:"Makale",proje:"Proje",arastirma:"Araştırma"},plural:{yazi:"Yazılar",makale:"Makaleler",proje:"Projeler",arastirma:"Araştırma"},
   draft:"Taslak",contactE:"İletişim",talk:"Yazalım<span>.</span>",copy:"Kopyala",copied:"Kopyalandı",selected:"Seçildi",toTop:"Başa dön ↑",
   foot:"Türkiye’de yapıldı, dünya için",clkTR:"Türkiye · TSİ",close:"Kapat · Esc",next:"Sıradaki",date:"Tarih",status:"Durum",read:"Okuma",min:"dk",tools:"Araçlar",note:"Not",
@@ -491,10 +578,10 @@ const UI = {
   pstar:"Clearing price",qstar:"Quantity",agentsL:"Agents",readStudy:"Read the study",
   hint:"Move your cursor up and down: demand shifts and the market re-clears.",hintTouch:"Demand drifts on its own; the market re-clears every moment.",boot:"Initialising agents",
   e3:"03 · World",h3:"From Türkiye <em>to the world.</em>",
-  p3:"I work on turning ideas that start in Türkiye into products built for the world. I study <strong>economics</strong> in the SUNY dual-diploma program at Pamukkale University, I’m a partner and CTO at <strong>TCM Global</strong>, I do investment analysis at <strong>APY Ventures</strong>, and I build my own products.",
-  indexH:"Writing, <em>projects,</em> research.",
-  now:[["Now","Partner & CTO, TCM Global"],["Venture","Due diligence, APY Ventures"],["Study","Economics, SUNY dual diploma"],["Building","Partable, Hindsight, PazarRadar"]],
-  search:"Search the index",empty:"Nothing matches that search. Switch the filter to “All” and try again.",all:"All",
+  p3:"I work on turning ideas that start in Türkiye into products built for the world. I study <strong>economics</strong> in the SUNY dual-diploma program at Pamukkale University, I’m co-founder and CTO of <strong>TCM Global</strong>, where I build brands, web products and AI systems, and I do investment analysis at <strong>APY Ventures</strong>.",
+  indexH:"TCM Global, <em>projects,</em> research.",
+  now:[["Now","Co-founder & CTO, TCM Global"],["Venture","Due diligence, APY Ventures"],["Study","Economics, SUNY dual diploma"],["TCM products","Franchise OS, GEO, TCM Academy"]],
+  search:"Search the index",empty:"Nothing matches that search. Switch the filter to “All” and try again.",all:"All",tcm:"TCM Global",visit:"Visit site ↗",link:"Link",
   types:{yazi:"Essay",makale:"Article",proje:"Project",arastirma:"Research"},plural:{yazi:"Essays",makale:"Articles",proje:"Projects",arastirma:"Research"},
   draft:"Draft",contactE:"Contact",talk:"Let’s talk<span>.</span>",copy:"Copy",copied:"Copied",selected:"Selected",toTop:"Back to top ↑",
   foot:"Made in Türkiye, for the world",clkTR:"Türkiye · TRT",close:"Close · Esc",next:"Next",date:"Date",status:"Status",read:"Reading",min:"min",tools:"Tools",note:"Note",
@@ -506,7 +593,8 @@ const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
 let lang = "tr", filter = "tumu", currentId = null, N = 15000, EQ = {p:0,q:0};
 try{ const l = localStorage.getItem("tk-lang"); if(l==="en"||l==="tr") lang = l; }catch(_){}
 const T = () => UI[lang];
-const sorted = [...ENTRIES].sort((a,b)=> b.date.localeCompare(a.date) || b.id.localeCompare(a.id));
+const rank = e => e.archive ? 3 : e.org==="tcm" ? 0 : e.type==="arastirma" ? 1 : 2;
+const sorted = [...ENTRIES].sort((a,b)=> rank(a)-rank(b) || (a.order??99)-(b.order??99) || b.date.localeCompare(a.date) || b.id.localeCompare(a.id));
 const fmtDate = d => { const [y,m] = d.split("-"); return `${T().months[+m-1]} ${y}`; };
 const readTime = html => Math.max(1, Math.round(html.replace(/<[^>]+>/g," ").trim().split(/\s+/).length / 200));
 const num = (v,d=0) => new Intl.NumberFormat(T().loc,{minimumFractionDigits:d,maximumFractionDigits:d}).format(v);
@@ -524,20 +612,23 @@ function renderStatic(){
   $("#hint").textContent = matchMedia("(hover:none)").matches ? T().hintTouch : T().hint;
   $("#bootTxt").textContent = T().boot;
 }
+const match = (e,k) => k==="tumu" || (k==="tcm" ? e.org==="tcm" : e.type===k);
 function renderChips(){
-  $("#chips").innerHTML = ["tumu","yazi","makale","proje","arastirma"].map(k=>{
-    const n = k==="tumu" ? ENTRIES.length : ENTRIES.filter(e=>e.type===k).length;
-    return `<button class="chip" type="button" data-k="${k}" aria-pressed="${k===filter}">${k==="tumu"?T().all:T().plural[k]}<sup>${String(n).padStart(2,"0")}</sup></button>`;
+  $("#chips").innerHTML = ["tumu","tcm","proje","arastirma","yazi","makale"].map(k=>{
+    const n = ENTRIES.filter(e=>match(e,k)).length;
+    if(!n) return "";
+    const label = k==="tumu" ? T().all : k==="tcm" ? T().tcm : T().plural[k];
+    return `<button class="chip" type="button" data-k="${k}" aria-pressed="${k===filter}">${label}<sup>${String(n).padStart(2,"0")}</sup></button>`;
   }).join("");
 }
 function renderList(){
   const q = $("#q").value.trim().toLocaleLowerCase(lang);
-  const items = sorted.filter(e => (filter==="tumu"||e.type===filter) &&
+  const items = sorted.filter(e => match(e,filter) &&
     (!q || (e.title[lang]+" "+e.dek[lang]+" "+(e.stack||[]).join(" ")).toLocaleLowerCase(lang).includes(q)));
   $("#list").innerHTML = items.map(e=>`
     <li><button class="row" type="button" data-id="${e.id}">
       <span class="id mono">${e.id.toUpperCase()}</span>
-      <span class="main"><span class="t">${e.title[lang]}${e.draft?`<em class="tag">${T().draft}</em>`:""}</span><span class="d">${e.dek[lang]}</span></span>
+      <span class="main"><span class="t">${e.title[lang]}${e.org==="tcm"?`<em class="tag tag-tcm">TCM</em>`:""}${e.draft?`<em class="tag">${T().draft}</em>`:""}</span><span class="d">${e.dek[lang]}</span></span>
       <span class="ty mono">${T().types[e.type]}</span>
       <span class="yr mono">${fmtDate(e.date)}</span>
       <span class="ar" aria-hidden="true">→</span>
@@ -557,6 +648,7 @@ function openEntry(id, push=true){
   if(e.meta) Object.entries(e.meta[lang]).forEach(kv=>meta.push(kv));
   if(e.type==="yazi"||e.type==="makale") meta.push([T().read, `${readTime(e.body[lang])} ${T().min}`]);
   if(e.draft) meta.push([T().note, T().draft]);
+  if(e.url) meta.push([T().link, `<a href="${e.url}" target="_blank" rel="noopener">${T().visit}</a>`]);
   $("#rdMeta").innerHTML = meta.map(([k,v])=>`<div><dt>${k}</dt><dd>${v}</dd></div>`).join("")
     + (e.stack ? `<div><dt>${T().tools}</dt><dd class="stack">${e.stack.map(s=>`<span>${s}</span>`).join("")}</dd></div>` : "");
   $("#rdProse").innerHTML = e.body[lang];
